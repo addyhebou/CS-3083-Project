@@ -7,7 +7,7 @@ INSERT INTO public.airport
 VALUES ('JFK', 'John F Kennedy', 'NYC');
 INSERT INTO public.airport
 VALUES ('PVG', 'Shanghai Pudong International', 'Shanghai');
-
+ 
 -- Insert at least three customers with appropriate names and other attributes.
 INSERT INTO public.customer
 ("name", "email", "password", "phone", "birth_date")

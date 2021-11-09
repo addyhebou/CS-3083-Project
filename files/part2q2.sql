@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS public.airline
     name character varying(25) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT airline_pkey PRIMARY KEY ("airline_ID")
 )
-
+ 
 CREATE TABLE IF NOT EXISTS public.airline_staff_member
 (
     username character varying(25) COLLATE pg_catalog."default" NOT NULL,
