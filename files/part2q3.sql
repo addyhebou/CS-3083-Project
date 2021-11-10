@@ -1,15 +1,17 @@
--- Adding a China Express Airline
+-- a. Add one Airline name "China Eastern".
 INSERT INTO public.airline
+("airline_code", "name")
 VALUES ('CEA', 'China Express Airlines');
 
--- Adding at least Two airports named "JFK" in NYC and "PVG" in Shanghai.
+-- b. Adding at least Two airports named "JFK" in NYC and "PVG" in Shanghai.
 INSERT INTO public.airport
+("code", "name", "city")
 VALUES ('JFK', 'John F Kennedy', 'NYC');
 INSERT INTO public.airport
 ("code", "name", "city")
 VALUES ('PVG', 'Shanghai Pudong International', 'Shanghai');
  
--- Insert at least three customers with appropriate names and other attributes.
+-- c. Insert at least three customers with appropriate names and other attributes.
 INSERT INTO public.customer
 ("name", "email", "password", "phone", "birth_date")
 VALUES ('Addy Hebou', 'ash594@nyu.edu', 'dynamite12', '2405959273', '12-16-2000' );
@@ -23,7 +25,7 @@ INSERT INTO public.customer
 VALUES ('Daijah Etienne', 'de937@nyu.edu', 'jukebox123', '8772410000', 'NULL' );
 
 
--- Insert at least three airplanes.
+-- d. Insert at least three airplanes.
 INSERT INTO public.airplane
 (plane_ID, airline, num_of_seats)
 VALUES ('CEA001', 'CEA', 135);
@@ -34,12 +36,12 @@ INSERT INTO public.airplane
 (plane_ID, airline, num_of_seats)
 VALUES ('AAL001', 'AAL', 150);
 
--- Insert At least One airline Staff working for China Eastern.
+-- e. Insert At least One airline Staff working for China Eastern.
 INSERT INTO public.airline_staff_member
 (username, password, first_name, last_name, birth_date)
 VALUES('yaofei', 'shadoshadoshado', 'Yao', 'Fei', '08-08-1965');
 
--- Insert several flights with on-time, and delayed statuses.
+-- f. Insert several flights with on-time, and delayed statuses.
 INSERT INTO public.flight
 (flight_num, airline, departure_date, departure_time, arrival_date, arrival_time, price, "status")
 VALUES (0001, 'AAL', '11-24-2021', '05:32', '11-24-2021', '12:12', '450', 'on-time');
@@ -48,7 +50,7 @@ INSERT INTO public.flight
 VALUES (0001, 'UAL', '11-24-2021', '15:21', '11-24-2021', '17:08', '230', 'delayed');
 
 
---  Insert some tickets for corresponding flights 
+--  g. Insert some tickets for corresponding flights 
 --  and insert some purchase records (customers bought some tickets).
 INSERT INTO public.ticket
 ("ticket_id", "sold_price", "date", "time", "card_type", "card_number", "name_on_card", "exp_date")
