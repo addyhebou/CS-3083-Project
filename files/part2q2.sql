@@ -62,3 +62,33 @@ CREATE TABLE IF NOT EXISTS public.customer_address
         ON DELETE NO ACTION
 )
 
+CREATE TABLE IF NOT EXISTS public.flight
+(
+    flight_num integer NOT NULL,
+    airline character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    depature_date character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    departure_time character varying(5) COLLATE pg_catalog."default" NOT NULL,
+    arrival_date character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    arrival_time character varying(5) COLLATE pg_catalog."default" NOT NULL,
+    price integer NOT NULL,
+    status character varying COLLATE pg_catalog."default",
+    CONSTRAINT flight_pkey PRIMARY KEY (flight_num, depature_date, departure_time),
+    CONSTRAINT airline_fkey FOREIGN KEY (airline)
+        REFERENCES public.airline ("airline_ID") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+CREATE TABLE IF NOT EXISTS public.ticket
+(
+    ticket_id character varying(8) COLLATE pg_catalog."default" NOT NULL,
+    sold_price integer NOT NULL,
+    date character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    "time" character varying(5) COLLATE pg_catalog."default" NOT NULL,
+    card_type character varying(15) COLLATE pg_catalog."default",
+    card_number character varying(15) COLLATE pg_catalog."default",
+    name_on_card character varying(15) COLLATE pg_catalog."default",
+    exp_date character varying(10) COLLATE pg_catalog."default",
+    CONSTRAINT ticket_pkey PRIMARY KEY (ticket_id)
+)
+

@@ -48,4 +48,11 @@ INSERT INTO public.flight
 VALUES (0001, 'UAL', '11-24-2021', '15:21', '11-24-2021', '17:08', '230', 'delayed');
 
 
--- Insert some tickets for corresponding flights and insert some purchase records (customers
+--  Insert some tickets for corresponding flights 
+--  and insert some purchase records (customers bought some tickets).
+INSERT INTO public.ticket
+("ticket_id", "sold_price", "date", "time", "card_type", "card_number", "name_on_card", "exp_date")
+VALUES ('00000001', '450', '11-01-2021', '04:23', 'credit', '1029384756', 'Addy Hebou', '02-13-2025');
+INSERT INTO public.ticket
+("ticket_id", "sold_price", "date", "time", "card_type", "card_number", "name_on_card", "exp_date")
+VALUES ('00000002', '450', '11-07-2021', '12:31', 'debit', '5647382910', 'Daijah Etienne', '04-17-2022');
