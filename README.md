@@ -5,6 +5,11 @@
 We can use this to trace all of our tasks needed to complete the project necessary.
 > https://trello.com/invite/b/CBTRzTNN/d9793bee9ad303014b85a8ffbb93711e/databases-airline-app
 
+**Figma**: 
+---
+We can use this to view our UX/UI desing of the project. 
+> https://www.figma.com/file/FTFO6vijLL39tY7e5qJH0h/School-Work?node-id=822%3A2
+
 ## Front End
 Holds all of the components to our client app
 1. React App
