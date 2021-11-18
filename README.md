@@ -7,7 +7,7 @@ We can use this to trace all of our tasks needed to complete the project necessa
 
 **Figma**: 
 ---
-We can use this to view our UX/UI desing of the project. 
+We can use this to view our UX/UI design of the project. 
 > https://www.figma.com/file/FTFO6vijLL39tY7e5qJH0h/School-Work?node-id=822%3A2
 
 ## Front End
