@@ -1,0 +1,129 @@
+$bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2017%2F04%2Fphuket-thailand-karst-formation-phuket0327.jpg&q=85';
+.bg-image {
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    ),
+    url($bg-image) no-repeat;
+  background-position: center;
+  transform: scaleX(-1);
+}
+
+.App {
+  text-align: center;
+  padding: 5px 40px;
+}
+
+.Home {
+  transform: scaleX(-1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f9d69;
+  border-radius: 9px;
+  color: white;
+  font-size: 18px;
+  width: 106px;
+  height: 38px;
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 9px;
+  color: black;
+  width: 106px;
+  height: 38px;
+  font-size: 18px;
+}
+
+.navButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homeLink {
+  width: 117px;
+  height: 29px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  /* identical to box height */
+
+  color: #3a3a3a;
+}
+
+.banner {
+  width: 85vw;
+  height: auto;
+  // background-color: red;
+
+  font-style: normal;
+  font-weight: bold;
+  // font-size: 36px;
+
+  color: #3a3a3a;
+  padding: 15vh 5vw 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: left;
+  line-height: normal;
+}
+
+.ticket {
+  width: 85vw;
+  height: 25vh;
+  background: #ffffff;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 38px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.from,
+.to {
+  border: 1px solid #959595;
+  box-sizing: border-box;
+  border-radius: 19px;
+  width: 30vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.to {
+  align-items: flex-end;
+}
+.from p,
+.to p {
+  margin-left: 40px;
+  margin-right: 40px;
+  line-height: 0px;
+}
+
+.caption {
+  font-size: 3em;
+  font-weight: 100;
+  text-align: right;
+}
