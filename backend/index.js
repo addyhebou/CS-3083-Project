@@ -3,16 +3,16 @@
 
 const express = require("express"); 
 const app = express(); 
-const cors = require("cors"); 
 
 //Setting up port dynaically with Heroku
 const port = process.env.PORT || 3000;  
 
-const indexRoute = require('./routes/index.js'); 
-
-app.use(cors()); 
-app.use('/', indexRoute); 
+app.get("/api", (req, res) => {
+    res.json({message: "Hello from server!"}); 
+}); 
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
+
+
