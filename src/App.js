@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   callAPI() {
-      fetch("http://localhost:4000/testAPI")
+      fetch("http://localhost:3000/")
           .then(res => res.text())
           .then(res => this.setState({ apiResponse: res }))
           .catch(err => err);
@@ -26,7 +26,6 @@ class App extends Component {
         <div className='App bg-image'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <p> API CALL: {this.state.apiResponse} </p>
           </Routes>
         </div>
       </Router>
