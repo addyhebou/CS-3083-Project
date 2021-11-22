@@ -1,9 +1,8 @@
 const express = require('express'); 
-const { pathToFileURL } = require('url');
 const router = express.Router(); 
 
-router.get("/", (req, res) => {
-    res.send("API is working!"); 
-})
+router.get('/', (req, res) => {
+    res.render('index', { title: 'Express' });
+ });
 
 module.exports = router; 
