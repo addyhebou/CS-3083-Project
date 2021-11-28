@@ -19,6 +19,156 @@ $bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstati
   transform: scaleX(-1);
 }
 
+.Profile {
+  transform: scaleX(-1);
+  background-color: white;
+}
+
+.flight {
+  width: 441px;
+  height: 232px;
+  border: 2px solid black;
+  border-top: 19px solid #317b5d;
+  background: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileContent {
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.signIn {
+  height: 90vh;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 19px;
+  transform: scaleX(-1);
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.CustomerProfile {
+  transform: scaleX(-1);
+}
+
+.StaffProfile {
+  transform: scaleX(-1);
+}
+
+.signInForm .input {
+  background: #ffffff;
+  border: 1px solid #959595;
+  box-sizing: border-box;
+  border-radius: 19px;
+  width: 500px;
+  height: 60px;
+}
+
+.greenBar {
+  width: 125px;
+  height: 6px;
+  background: #1f9d69;
+  border-radius: 19px;
+}
+
+.profilePic {
+  width: 25vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: translate(0%, 0%);
+}
+.bookedFlights {
+  background: #c4f8e2;
+  width: 50vw;
+  padding: 20px;
+}
+
+.bookedFlights h2 {
+  text-align: left;
+}
+
+.whiteBackground {
+  background-color: #ffffff;
+}
+
+.addAirportAndAirlineForms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.airlineHome {
+  transform: scaleX(-1);
+}
+
+.airlineHome header {
+  align-items: center;
+  display: flex;
+  height: 15vh;
+  justify-content: left;
+  width: auto;
+}
+
+.profilePic2 {
+  width: 40vh;
+  border-radius: 100%;
+  border: 11px solid #ffffff;
+  filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.25));
+}
+
+.moneyBlock {
+  width: 262px;
+  height: 160px;
+  background: #ffffff;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // line-height: 0;
+}
+
+.moneyBlock strong {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 57px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.moneyBlock p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #959595;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -125,5 +275,12 @@ $bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstati
 .caption {
   font-size: 3em;
   font-weight: 100;
+  text-align: right;
+}
+
+.frominfo {
+  text-align: left;
+}
+.toinfo {
   text-align: right;
 }
