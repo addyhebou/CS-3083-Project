@@ -5,6 +5,7 @@ import ProfilePic from '../Components/ProfilePic.js';
 import MoneyBlock from '../Components/MoneyBlock.js';
 import BookedFlights from '../Components/BookedFlights.js';
 import AddAirportAndAirlineForms from '../Components/AddAirportAndAirlineForms.js';
+import { Link } from 'react-router-dom';
 export default function StaffProfile() {
   let imageURL = `https://static.wikia.nocookie.net/disney/images/1/1b/Profile_-_Loki_%28Thor_Ragnarok%29.jpg/revision/latest?cb=20210421185239`;
   return (
@@ -17,6 +18,7 @@ export default function StaffProfile() {
         <div className='profileContent'>
           <div>
             <ProfilePic imageURL={imageURL} />
+            <Link to='/staff/airline'>View airline</Link>
             <h1>Monthly Spending</h1>
             <MoneyBlock />
           </div>

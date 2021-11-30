@@ -10,6 +10,12 @@ $bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstati
   transform: scaleX(-1);
 }
 
+.airlineStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .App {
   text-align: center;
   padding: 5px 40px;
@@ -17,6 +23,25 @@ $bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstati
 
 .Home {
   transform: scaleX(-1);
+}
+
+.customerTickets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.searchCustomer {
+  margin-top: 20px;
+}
+
+.customerTicket {
+  text-align: left;
+  background-color: white;
+  padding: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin: 10px;
 }
 
 .Profile {
@@ -134,7 +159,7 @@ form {
   filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.25));
 }
 
-.moneyBlock {
+.block {
   width: 262px;
   height: 160px;
   background: #ffffff;
@@ -147,17 +172,17 @@ form {
   // line-height: 0;
 }
 
-.moneyBlock strong {
+.block strong {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
   line-height: 57px;
   text-align: center;
 
-  color: #000000;
+  color: #272727;
 }
 
-.moneyBlock p {
+.block p {
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
