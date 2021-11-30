@@ -9,7 +9,6 @@ import './App.scss';
 import AirlineHome from './Pages/AirlineHome.js';
 
 function App() {
-
   return (
     <Router>
       <div className='App bg-image'>
