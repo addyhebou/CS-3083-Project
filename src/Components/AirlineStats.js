@@ -5,7 +5,7 @@ import CustomerBlock from './CustomerBlock';
 
 export default function AirlineStats() {
   return (
-    <div>
+    <div className='airlineStats'>
       <MoneyBlock />
       <DestinationBlock />
       <CustomerBlock />
