@@ -7,6 +7,7 @@ import StaffProfile from './Pages/StaffProfile.js';
 import CustomerProfile from './Pages/CustomerProfile.js';
 import './App.scss';
 import AirlineHome from './Pages/AirlineHome.js';
+import ViewFlights from './Pages/ViewFlights.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/customer/profile' element={<CustomerProfile />} />
           <Route path='/staff/profile' element={<StaffProfile />} />
           <Route path='/staff/airline' element={<AirlineHome />} />
+          <Route path='/flight' element={<ViewFlights />} />
         </Routes>
       </div>
     </Router>

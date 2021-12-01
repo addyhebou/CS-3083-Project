@@ -12,21 +12,4 @@ const pool = new Pool({
   },
 });
 
-// pool.connect();
-
-// pool.query(`Select * from users`, (err, res) => {
-//   if (!err) console.log(res.rows);
-//   else console.log(err.message);
-//   pool.end;
-// });
-
-// pool
-//   .connect()
-//   .then(() => console.log('Connected successfully - woohoo!'))
-//   .then(() => pool.query('SELECT * FROM public."customer"'))
-//   .catch((e) => console.log(e))
-//   .then((results) => console.table(results.rows))
-//   .catch((err) => console.log(err))
-//   .finally(() => pool.end());
-
 module.exports = pool;

@@ -1,12 +1,12 @@
 //Heroku Link
 //https://cs-3083.herokuapp.com/
 
-const express = require('express');
-const app = express();
+const express = require('express'); // init express app
+const app = express(); // calls the app
 //Setting up port dynaically with Heroku
-const port = process.env.PORT || 4000;
-const cors = require('cors');
-const pool = require('./db');
+const port = process.env.PORT || 4000; // defines what port to use (most likely gonna be 4000)
+const cors = require('cors'); // prevents CORS error
+const pool = require('./db'); // stores the db credentials
 
 app.use(cors());
 app.use(express.json());
@@ -39,6 +39,17 @@ app.get('/users', async (req, res) => {
     console.log(error.message);
   }
 });
+
+// Route to get all flights
+app.get('/flight', async (req, res) => {
+  try {
+    const flight = await pool.query('SELECT * from public.flight');
+    res.json(flight.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 // get a user
 app.get('/users/:id', async (req, res) => {
   try {
@@ -102,3 +113,22 @@ app.listen(port, () => {
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 // });
+
+/*
+
+PERN Stack
+MEAN Stack
+MERN Stack
+PEVN 
+
+<Routes>
+    <Route></Route>
+    <></>
+
+</Routes>
+
+
+P: PostGreSql
+E
+
+*/
