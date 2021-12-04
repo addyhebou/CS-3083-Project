@@ -20,7 +20,7 @@ function App() {
           <Route path='/customer/profile' element={<CustomerProfile />} />
           <Route path='/staff/profile' element={<StaffProfile />} />
           <Route path='/staff/airline' element={<AirlineHome />} />
-          <Route path='/flight' element={<ViewFlights />} />
+          <Route path='/flights' element={<ViewFlights />} />
         </Routes>
       </div>
     </Router>

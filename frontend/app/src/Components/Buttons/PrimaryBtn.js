@@ -9,6 +9,7 @@ export default function SignInButton(props) {
     <button
       className='primaryBtn'
       style={{ position: position, right: right, top: top }}
+      type='submit'
     >
       <strong>{text}</strong>
     </button>

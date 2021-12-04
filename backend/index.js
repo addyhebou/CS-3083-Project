@@ -15,7 +15,7 @@ console.log('Running index.js');
 // Routes
 
 // create a user
-app.post('/users', async (req, res) => {
+app.post('/customers', async (req, res) => {
   try {
     const user = req.body;
     console.log(user);
@@ -31,7 +31,7 @@ app.post('/users', async (req, res) => {
 });
 
 // get all users
-app.get('/users', async (req, res) => {
+app.get('/customers', async (req, res) => {
   try {
     const users = await pool.query('SELECT * from public.customer');
     res.json(users.rows);
@@ -51,7 +51,7 @@ app.get('/flight', async (req, res) => {
 });
 
 // get a user
-app.get('/users/:id', async (req, res) => {
+app.get('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const users = await pool.query(
@@ -66,7 +66,7 @@ app.get('/users/:id', async (req, res) => {
 
 // update a user
 
-app.put('/users/:id', async (req, res) => {
+app.put('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -81,7 +81,7 @@ app.put('/users/:id', async (req, res) => {
 });
 
 // delete a user
-app.delete('/users/:id', async (req, res) => {
+app.delete('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const users = await pool.query(

@@ -21,6 +21,10 @@ $bg-image: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstati
   padding: 5px 40px;
 }
 
+.Flights {
+  transform: scaleX(-1);
+}
+
 .Home {
   transform: scaleX(-1);
 }
