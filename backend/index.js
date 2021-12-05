@@ -14,10 +14,10 @@ app.use(express.json());
 console.log('Running index.js');
 // Routes
 
-// create a user
+// CREATE A CUSTOMER
 app.post('/customers', async (req, res) => {
   try {
-    const user = req.body;
+    const user = req.body; // body input must be in SQL form
     console.log(user);
     const newUser = await pool.query(
       'INSERT INTO public."customer" VALUES ($1, $2, $3, $4, $5) RETURNING *',
@@ -30,7 +30,22 @@ app.post('/customers', async (req, res) => {
   }
 });
 
-// get all users
+// CREATE A AIRPLANE
+app.post('/airplanes', async (req, res) => {
+  try {
+    const airplane = req.body;
+    const airplaneQuery = await pool.query(
+      'INSERT INTO public."airplane" VALUES ($1, $2, $3) RETURNING *',
+      [airplane.plane_ID, airplane.airline, airplane.num_of_seats]
+    );
+
+    res.json(airplaneQuery);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// GET ALL CUSTOMERS
 app.get('/customers', async (req, res) => {
   try {
     const users = await pool.query('SELECT * from public.customer');
@@ -40,8 +55,18 @@ app.get('/customers', async (req, res) => {
   }
 });
 
-// Route to get all flights
-app.get('/flight', async (req, res) => {
+// GET ALL CUSTOMERS
+app.get('/staff', async (req, res) => {
+  try {
+    const staff = await pool.query('SELECT * from public.staff');
+    res.json(staff.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// GET ALL FLIGHTS
+app.get('/flights', async (req, res) => {
   try {
     const flight = await pool.query('SELECT * from public.flight');
     res.json(flight.rows);
@@ -50,7 +75,17 @@ app.get('/flight', async (req, res) => {
   }
 });
 
-// get a user
+// GET ALL AIRPLANES
+app.get('/airplanes', async (req, res) => {
+  try {
+    const airplane = await pool.query('SELECT * from public.airplane');
+    res.json(airplane.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// GET A SPECIFIC CUSTOMER
 app.get('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -64,12 +99,54 @@ app.get('/customers/:id', async (req, res) => {
   }
 });
 
-// update a user
+// GET A SPECIFIC STAFF
+app.get('/staff/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const staff = await pool.query(
+      'SELECT * from public.staff WHERE username = $1',
+      [id]
+    );
+    res.json(staff.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
 
+// GET AIRLINE-SPECIFIC AIRPLANES
+app.get('/airplanes/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const airplanes = await pool.query(
+      'SELECT * from public.airplane WHERE airline = $1',
+      [id]
+    );
+    res.json(airplanes.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// GET AIRLINE-SPECIFIC FLIGHTS
+app.get('/flights/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const flights = await pool.query(
+      'SELECT * from public.flight WHERE airline = $1',
+      [id]
+    );
+    res.json(flights.rows);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// UPDATE A CUSTOMER
 app.put('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { name } = req.body;
+    // Make sure to edit the SQL
     const users = await pool.query(
       'UPDATE public.customer SET name = $1 WHERE name = $2',
       [name, id]
@@ -80,7 +157,7 @@ app.put('/customers/:id', async (req, res) => {
   }
 });
 
-// delete a user
+// DELETE A CUSTOMER
 app.delete('/customers/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -97,38 +174,3 @@ app.delete('/customers/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
-// const indexRoute = require('./routes/index.js');
-
-// app.use('/', indexRoute);
-
-// // Have Node serve the files for our built React app
-// app.use(express.static(path.resolve(__dirname, '../frontend/build')));
-
-// // Handle GET requests to /api route
-// app.get('/api', (req, res) => {
-//   res.json({ message: 'Hello from server!' });
-// });
-
-// // All other GET requests not handled before will return our React app
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-// });
-
-/*
-
-PERN Stack
-MEAN Stack
-MERN Stack
-PEVN 
-
-<Routes>
-    <Route></Route>
-    <></>
-
-</Routes>
-
-
-P: PostGreSql
-E
-
-*/
