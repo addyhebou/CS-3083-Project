@@ -9,12 +9,11 @@ function ViewFlights(props) {
 
   const getFlights = async () => {
     try {
-      const response = await fetch('http://localhost:4000/flight');
+      const response = await fetch(
+        `http://localhost:4000/flights/from/${query['from']}/to/${query['to']}`
+      );
       const json = await response.json();
       setflights(json);
-      console.log(json);
-      console.log(flights);
-      console.log(typeof flights);
     } catch (error) {
       alert(error.message);
       console.log(error.message);
@@ -23,23 +22,24 @@ function ViewFlights(props) {
 
   useEffect(() => {
     getFlights();
+    console.log(query);
   }, []);
 
   return (
     <div className='Flights'>
       <h1>View Flights</h1>
-      {/* {Object.keys(flights).map((flight) => {
+      {flights.map((flight) => {
         return (
-          <div>
-            <strong>{flight.airline}</strong>
-            <strong>{flight.departure_date}</strong>
-            <strong>{flight.departure_time}</strong>
-            <strong>{flight.arrival_date}</strong>
-            <strong>{flight.arrival_time}</strong>
-            <strong>{flight.price}</strong>
-          </div>
+          <ul>
+            <li>Airline: {flight.airline}</li>
+            <li>Departure date: {flight.departure_date}</li>
+            <li>Departure time: {flight.departure_time}</li>
+            <li>Arival date: {flight.arrival_date}</li>
+            <li>Arrival_Time: {flight.arrival_time}</li>
+            <li>Price: {flight.price}</li>
+          </ul>
         );
-      })} */}
+      })}
     </div>
   );
 }

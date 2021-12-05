@@ -128,15 +128,35 @@ app.get('/airplanes/:id', async (req, res) => {
 });
 
 // GET AIRLINE-SPECIFIC FLIGHTS
-app.get('/flights/:id', async (req, res) => {
+app.get('/flights/:airline', async (req, res) => {
   try {
-    const { id } = req.params;
+    const { airline } = req.params;
+    console.log(airline);
     const flights = await pool.query(
       'SELECT * from public.flight WHERE airline = $1',
-      [id]
+      [airline]
     );
     res.json(flights.rows);
   } catch (error) {
+    console.log(error.message);
+  }
+});
+
+// GET SEARCHED FLIGHTS
+app.get('/flights/from/:from/to/:to', async (req, res) => {
+  try {
+    const id = req.params;
+    const from = id['from'] || '';
+    const to = id['to'] || '';
+    // const depart = id['depart'];
+    // const arrival = id['arrival'];
+    const flights = await pool.query(
+      'SELECT * from public.flight WHERE "from" = $1 and "to" = $2',
+      [from, to]
+    );
+    res.json(flights.rows);
+  } catch (error) {
+    console.log('hello');
     console.log(error.message);
   }
 });

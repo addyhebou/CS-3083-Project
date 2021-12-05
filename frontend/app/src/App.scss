@@ -92,6 +92,13 @@ form {
   justify-content: center;
 }
 
+.ticket form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .CustomerProfile {
   transform: scaleX(-1);
 }
@@ -283,7 +290,7 @@ form {
   border: 1px solid #959595;
   box-sizing: border-box;
   border-radius: 19px;
-  width: 30vw;
+  width: 15vw;
   height: 15vh;
   display: flex;
   flex-direction: column;

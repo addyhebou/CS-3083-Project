@@ -18,7 +18,6 @@ function Ticket() {
     res['depart_time'] = departTime;
     res['arrival_time'] = arrivalTime;
     await setQuery(res);
-    console.log(res);
     console.log(query);
   };
 
