@@ -1,11 +1,25 @@
 import React from 'react';
+import { useState } from 'react';
 
 export default function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [customer, setCustomer] = useState({});
+
+  const signIn = (e) => {
+    e.preventDefault();
+    let res = {};
+    res['email'] = email;
+    res['password'] = password;
+    setCustomer(res);
+    console.log(customer);
+  };
+
   return (
     <div className='signIn'>
       <div className='signInForm'>
         <h1>Are you a customer or an airline staff member?</h1>
-        <form>
+        <form onSubmit={signIn}>
           <div>
             <input type='radio' id='html' name='fav_language' value='HTML' />
             <label for='html'>Customer</label>
@@ -24,6 +38,10 @@ export default function SignIn() {
               type='text'
               id='fname'
               name='fname'
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <div>
@@ -34,6 +52,10 @@ export default function SignIn() {
               type='text'
               id='lname'
               name='lname'
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
           <input type='submit' value='Submit' />
