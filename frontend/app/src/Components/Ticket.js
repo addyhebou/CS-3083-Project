@@ -55,6 +55,9 @@ function Ticket() {
             <p>Departure</p>
             <input
               placeholder='11-25-2021'
+              type='date'
+              id='start'
+              name='trip-start'
               value={departTime}
               onChange={(e) => {
                 setDepartTime(e.target.value);
@@ -65,13 +68,15 @@ function Ticket() {
             <p>Arrival</p>
             <input
               placeholder='11-30-2021'
+              type='date'
+              id='start'
+              name='trip-start'
               value={arrivalTime}
               onChange={(e) => {
                 setArrivalTime(e.target.value);
               }}
             />
           </div>
-          {/* <button onClick={lookFlights}> */}
           <button type='submit' style={{ width: '30px', height: '70px' }}>
             <Link to='/flights' state={query}>
               <PrimaryBtn

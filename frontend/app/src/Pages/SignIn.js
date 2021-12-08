@@ -2,17 +2,38 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function SignIn() {
+  const [customer, setCustomer] = useState({});
+  const [staff, setStaff] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [customer, setCustomer] = useState({});
+  const [isStaff, setIsStaff] = useState(false);
+  const [isCustomer, setIsCustomer] = useState(true);
 
-  const signIn = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
-    let res = {};
-    res['email'] = email;
-    res['password'] = password;
-    setCustomer(res);
-    console.log(customer);
+    const url = isCustomer ? `customers` : `staff`;
+    try {
+      const response = await fetch(
+        `http://localhost:4000/${url}/email/${email}/password/${password}`
+      );
+      const json = await response.json();
+      console.log(url);
+      console.log(json);
+      isCustomer ? setCustomer(json) : setStaff(json);
+      isCustomer ? console.log(customer) : console.log(staff);
+      const obj = isCustomer ? customer : staff;
+      console.log(obj);
+      localStorage.setItem('name', obj[0]['name']);
+      localStorage.setItem('password', obj[0]['password']);
+      localStorage.setItem('email', obj[0]['email']);
+      localStorage.setItem('phone', obj[0]['phone']);
+      localStorage.setItem('birth_date', obj[0]['birth_date']);
+      localStorage.setItem('imageURL', obj[0]['image_URL']);
+      localStorage.setItem('type', isCustomer ? 'customer' : 'staff');
+      window.location.replace('/');
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -20,12 +41,35 @@ export default function SignIn() {
       <div className='signInForm'>
         <h1>Are you a customer or an airline staff member?</h1>
         <form onSubmit={signIn}>
-          <div>
-            <input type='radio' id='html' name='fav_language' value='HTML' />
+          <div
+            onClick={() => {
+              setIsCustomer(true);
+              setIsStaff(false);
+            }}
+          >
+            <input
+              type='radio'
+              id='html'
+              name='fav_language'
+              checked={isCustomer == true && isStaff == false}
+              value={isCustomer}
+            />
             <label for='html'>Customer</label>
           </div>
-          <div>
-            <input type='radio' id='css' name='fav_language' value='CSS' />
+          <div
+            onClick={() => {
+              setIsCustomer(false);
+              setIsStaff(true);
+            }}
+          >
+            <input
+              type='radio'
+              id='css'
+              name='fav_language'
+              value='Airline'
+              checked={isStaff == true && isCustomer == false}
+              value={isStaff}
+            />
             <label for='css'>Airline Staff Member</label>
           </div>
           <h1>Sign into your account</h1>

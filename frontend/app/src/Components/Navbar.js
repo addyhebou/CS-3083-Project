@@ -9,20 +9,37 @@ export default function Navbar() {
       <Link to='/'>
         <strong className='homeLink'>Databases</strong>
       </Link>
-      <Link to='/customer/profile'>
-        <p>Customer profile</p>
-      </Link>
-      <Link to='/staff/profile'>
-        <p>Staff profile</p>
-      </Link>
-      <div class='navButtons'>
-        <Link to='/register'>
-          <SecondaryBtn text={'Register'} />
+      {localStorage.getItem('type') === 'customer' ? (
+        <Link to='/customer/profile'>
+          <p>Customer profile</p>
         </Link>
-        <Link to='/signin'>
-          <PrimaryBtn text={'Sign In'} />
+      ) : localStorage.getItem('type') === 'staff' ? (
+        <Link to='/staff/profile'>
+          <p>Staff profile</p>
         </Link>
-      </div>
+      ) : (
+        <div></div>
+      )}
+      {!localStorage.getItem('name') ? (
+        <div class='navButtons'>
+          <Link to='/register'>
+            <SecondaryBtn text={'Register'} />
+          </Link>
+          <Link to='/signin'>
+            <PrimaryBtn text={'Sign In'} />
+          </Link>
+        </div>
+      ) : (
+        <Link
+          to='/'
+          onClick={() => {
+            alert(` ${localStorage.getItem('name')} is signed out`);
+            localStorage.clear();
+          }}
+        >
+          <PrimaryBtn text={'Sign Out'} />
+        </Link>
+      )}
     </div>
   );
 }
